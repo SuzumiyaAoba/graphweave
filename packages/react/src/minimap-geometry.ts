@@ -1,3 +1,4 @@
+import { getBoundsOfRects } from "@free-flow/core";
 import type { Rect } from "@free-flow/core";
 
 /** The part of the flow the mini map shows, and how much flow space one mini map pixel covers. */
@@ -10,17 +11,6 @@ export interface MiniMapView {
   viewScale: number;
   /** The margin added around the content, in flow units. */
   offset: number;
-}
-
-function unionOf(a: Rect, b: Rect): Rect {
-  const x = Math.min(a.x, b.x);
-  const y = Math.min(a.y, b.y);
-  return {
-    x,
-    y,
-    width: Math.max(a.x + a.width, b.x + b.width) - x,
-    height: Math.max(a.y + a.height, b.y + b.height) - y,
-  };
 }
 
 export interface MiniMapViewInput {
@@ -41,7 +31,9 @@ export interface MiniMapViewInput {
 export function miniMapView(input: MiniMapViewInput): MiniMapView {
   const { element, offsetScale } = input;
   const content =
-    input.nodesBounds === undefined ? input.visible : unionOf(input.nodesBounds, input.visible);
+    input.nodesBounds === undefined
+      ? input.visible
+      : getBoundsOfRects([input.nodesBounds, input.visible]);
   const scale = Math.max(content.width / element.width, content.height / element.height);
   // A flow with nothing to show still needs a usable scale.
   const viewScale = scale > 0 ? scale : 1;

@@ -1,7 +1,8 @@
 import { errorMessages } from "./error-messages.ts";
 import type { OnError } from "./error-messages.ts";
-import { dimensionsOf } from "./expand-parent.ts";
 import type { InternalNode } from "./flow-state.ts";
+import { clamp } from "./geometry.ts";
+import { nodeSize } from "./graph.ts";
 import type { CoordinateExtent, NodeBase, NodeOrigin, XYPosition } from "./types.ts";
 
 // Where a node ends up when it is moved to `nextPosition` (the absolute position of its top left
@@ -16,14 +17,8 @@ export interface NodePositioning {
   positionAbsolute: XYPosition;
 }
 
-function isExtent(extent: unknown): extent is CoordinateExtent {
+export function isExtent(extent: unknown): extent is CoordinateExtent {
   return Array.isArray(extent);
-}
-
-// The same as `Math.min(Math.max(value, min), max)`: when the range is smaller than the node, the
-// upper bound wins, which is how React Flow clamps.
-function clamp(value: number, min: number, max: number): number {
-  return Math.min(Math.max(value, min), max);
 }
 
 function clampPosition(
@@ -43,7 +38,7 @@ function parentBox(parent: InternalNode | undefined): CoordinateExtent | undefin
   if (parent === undefined) {
     return undefined;
   }
-  const { width, height } = dimensionsOf(parent);
+  const { width, height } = nodeSize(parent);
   const { x, y } = parent.internals.positionAbsolute;
   return width === 0 || height === 0
     ? undefined
@@ -114,7 +109,7 @@ export function calculateNodePosition<TNode extends NodeBase>(
   const origin = node.origin ?? request.nodeOrigin;
   const extent = extentOf(node, parent, nodeExtent);
   reportProblems(request, parent);
-  const size = dimensionsOf(node);
+  const size = nodeSize(node);
   const positionAbsolute =
     extent === undefined ? nextPosition : clampPosition(nextPosition, extent, size);
   const parentAt = parent?.internals.positionAbsolute ?? { x: 0, y: 0 };

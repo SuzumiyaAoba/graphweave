@@ -51,6 +51,11 @@ export function zoomAt(viewport: Viewport, anchor: Point, zoom: number): Viewpor
   return { x: anchor.x - flow.x * zoom, y: anchor.y - flow.y * zoom, zoom };
 }
 
+/** Whether two viewports are the same: the same pan and the same zoom. */
+export function sameViewport(a: Viewport, b: Viewport): boolean {
+  return a.x === b.x && a.y === b.y && a.zoom === b.zoom;
+}
+
 /**
  * Clamps a zoom level into `[min, max]`.
  *

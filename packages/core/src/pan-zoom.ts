@@ -11,7 +11,7 @@ const WHEEL_LINE_STEP = 0.05;
 const WHEEL_PAGE_STEP = 1;
 // On macOS a trackpad pinch arrives as a wheel event with `ctrlKey` set and needs a stronger
 // response (React Flow does the same, and only there).
-const PINCH_BOOST = 10;
+export const PINCH_BOOST = 10;
 // One scroll line is about this many pixels when panning on scroll.
 const LINE_HEIGHT = 20;
 
@@ -54,7 +54,8 @@ export function wheelAction(input: WheelInput, options: WheelOptions): WheelActi
   return allowed ? "zoom" : "none";
 }
 
-function wheelStep(deltaMode: number): number {
+/** How much of a wheel delta counts toward zooming, by the unit it comes in: pixels, lines or pages. */
+export function wheelZoomStep(deltaMode: number): number {
   if (deltaMode === DELTA_MODE_LINE) {
     return WHEEL_LINE_STEP;
   }
@@ -63,7 +64,7 @@ function wheelStep(deltaMode: number): number {
 
 function zoomedByWheel(viewport: Viewport, input: WheelInput, options: WheelOptions): Viewport {
   const boost = input.ctrlKey && options.macOs === true ? PINCH_BOOST : 1;
-  const exponent = -input.deltaY * wheelStep(input.deltaMode) * boost;
+  const exponent = -input.deltaY * wheelZoomStep(input.deltaMode) * boost;
   const zoom = clampZoom(viewport.zoom * 2 ** exponent, options.minZoom, options.maxZoom);
   return zoomAt(viewport, input.point, zoom);
 }

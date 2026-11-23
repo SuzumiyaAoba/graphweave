@@ -1,5 +1,6 @@
 import type { OnError } from "./error-messages.ts";
 import type { InternalNode } from "./flow-state.ts";
+import { clamp } from "./geometry.ts";
 import type { Point } from "./geometry.ts";
 import { placeAll } from "./node-drag-place.ts";
 import type { Held } from "./node-drag-place.ts";
@@ -83,11 +84,6 @@ export function getDragItems(
     }
   }
   return items;
-}
-
-// Keeps `value` in [min, max]; when the range is smaller than needed the upper bound wins, as in React Flow.
-function clampTo(value: number, min: number, max: number): number {
-  return Math.min(Math.max(value, min), max);
 }
 
 function changeFor(held: Held, dragging: boolean): NodePositionChange {
@@ -198,9 +194,9 @@ const AUTO_PAN_SPEED = 15;
 // speed at the border and beyond. `max` is where the far edge zone begins.
 function autoPanShare(value: number, max: number): number {
   if (value < AUTO_PAN_EDGE) {
-    return clampTo(Math.abs(value - AUTO_PAN_EDGE), 1, AUTO_PAN_EDGE) / AUTO_PAN_EDGE;
+    return clamp(Math.abs(value - AUTO_PAN_EDGE), 1, AUTO_PAN_EDGE) / AUTO_PAN_EDGE;
   }
-  return value > max ? -clampTo(Math.abs(value - max), 1, AUTO_PAN_EDGE) / AUTO_PAN_EDGE : 0;
+  return value > max ? -clamp(Math.abs(value - max), 1, AUTO_PAN_EDGE) / AUTO_PAN_EDGE : 0;
 }
 
 /**

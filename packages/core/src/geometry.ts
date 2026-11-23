@@ -1,3 +1,6 @@
+/** One half: the middle of a span. */
+export const HALF = 0.5;
+
 /** Point in graph (flow) or screen coordinates. */
 export interface Point {
   readonly x: number;
@@ -82,4 +85,12 @@ export function normalizePoint(x: number, y: number): Point {
     throw new RangeError("Point components must be finite float32 numbers");
   }
   return rounded;
+}
+
+/**
+ * Keeps `value` in `[min, max]`, the same as `Math.min(Math.max(value, min), max)`: when the range is
+ * empty (`max < min`) the upper bound wins, which is how React Flow clamps.
+ */
+export function clamp(value: number, min: number, max: number): number {
+  return Math.min(Math.max(value, min), max);
 }

@@ -1,4 +1,11 @@
-import { connectionKey, getBoundsOfRects, isEdge, isNode, rectOverlapArea } from "@free-flow/core";
+import {
+  connectionKey,
+  getBoundsOfRects,
+  isEdge,
+  isNode,
+  nodeSize,
+  rectOverlapArea,
+} from "@free-flow/core";
 import type { InternalNode, Rect } from "@free-flow/core";
 
 import { enqueueEdges, enqueueNodes } from "./batch-queue.ts";
@@ -64,13 +71,7 @@ function updateEdges(store: ReactFlowStore, id: string, change: (edge: Edge) => 
 }
 
 function rectOf(node: InternalNode): Rect {
-  const { x, y } = node.internals.positionAbsolute;
-  return {
-    x,
-    y,
-    width: node.measured.width ?? node.width ?? node.initialWidth ?? 0,
-    height: node.measured.height ?? node.height ?? node.initialHeight ?? 0,
-  };
+  return { ...node.internals.positionAbsolute, ...nodeSize(node) };
 }
 
 function isRect(value: { id: string } | Rect): value is Rect {

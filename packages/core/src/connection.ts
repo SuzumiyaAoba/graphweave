@@ -8,12 +8,12 @@ import type {
   InternalNode,
 } from "./flow-state.ts";
 import type { FlowStore } from "./flow-store-types.ts";
+import { nodeSize } from "./graph.ts";
 import {
   findAttachedHandle,
   getHandlePosition,
   handlesOf,
   oppositePosition,
-  sizeOf,
 } from "./handle-geometry.ts";
 import type { Connection, EdgeBase, HandleType, NodeBase, XYPosition } from "./types.ts";
 import { ConnectionMode } from "./types.ts";
@@ -81,7 +81,7 @@ export function isValidConnection(rules: ConnectionRules, from: End, to: End): b
 
 function nodeNearPoint(node: InternalNode, point: XYPosition, radius: number): boolean {
   const { x, y } = node.internals.positionAbsolute;
-  const { width, height } = sizeOf(node);
+  const { width, height } = nodeSize(node);
   return (
     point.x >= x - radius &&
     point.x <= x + width + radius &&

@@ -1,4 +1,6 @@
 import type { InternalNode } from "./flow-state.ts";
+import { clamp } from "./geometry.ts";
+import { nodeSize } from "./graph.ts";
 import type { CoordinateExtent, NodeBase, NodeOrigin, XYPosition } from "./types.ts";
 
 /** What places a node: where nodes start from, and the limit that keeps them on the canvas. */
@@ -13,22 +15,11 @@ interface Size {
   height: number;
 }
 
-function sizeOf(node: NodeBase): Size {
-  return {
-    width: node.measured?.width ?? node.width ?? node.initialWidth ?? 0,
-    height: node.measured?.height ?? node.height ?? node.initialHeight ?? 0,
-  };
-}
-
 // The node's top-left corner relative to its parent, with the origin applied.
 function localTopLeft(node: NodeBase, nodeOrigin: NodeOrigin): XYPosition {
   const [originX, originY] = node.origin ?? nodeOrigin;
-  const { width, height } = sizeOf(node);
+  const { width, height } = nodeSize(node);
   return { x: node.position.x - width * originX, y: node.position.y - height * originY };
-}
-
-function clamp(value: number, min: number, max: number): number {
-  return Math.min(Math.max(value, min), max);
 }
 
 // Moves the corner of a box of `size` into `extent`, the far side winning when it does not fit.
@@ -52,7 +43,7 @@ function boxOf(node: NodeBase): CoordinateExtent | undefined {
 // The box of a parent on the canvas, which a child with the extent `parent` stays inside.
 function boxOfParent(parent: InternalNode): CoordinateExtent {
   const at = parent.internals.positionAbsolute;
-  const room = sizeOf(parent);
+  const room = nodeSize(parent);
   return [
     [at.x, at.y],
     [at.x + room.width, at.y + room.height],
@@ -66,7 +57,7 @@ function childPosition(
   parent: InternalNode,
   options: PlacementOptions,
 ): XYPosition {
-  const size = sizeOf(node);
+  const size = nodeSize(node);
   const local = localTopLeft(node, options.nodeOrigin);
   const box = boxOf(node);
   const placed = box === undefined ? local : clampInto(local, box, size);
@@ -92,5 +83,5 @@ export function absolutePositionOf(
     return childPosition(node, parent, options);
   }
   const extent = boxOf(node) ?? options.nodeExtent ?? UNLIMITED;
-  return clampInto(localTopLeft(node, options.nodeOrigin), extent, sizeOf(node));
+  return clampInto(localTopLeft(node, options.nodeOrigin), extent, nodeSize(node));
 }

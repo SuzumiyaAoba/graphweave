@@ -1,5 +1,5 @@
-import { dimensionsOf } from "./expand-parent.ts";
 import type { Point } from "./geometry.ts";
+import { nodeSize } from "./graph.ts";
 import type { ControlPosition } from "./node-resize.ts";
 import { resizeChanges } from "./resize-changes.ts";
 import type { Change } from "./resize-changes.ts";
@@ -250,7 +250,7 @@ export function startResize<TNode extends NodeBase>(
   pointer: Point,
 ): ResizeSession {
   const { node } = world;
-  const first: ResizeValues = { ...dimensionsOf(node), x: node.position.x, y: node.position.y };
+  const first: ResizeValues = { ...nodeSize(node), x: node.position.x, y: node.position.y };
   const run: Run<TNode> = {
     world,
     setup,

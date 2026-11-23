@@ -1,5 +1,6 @@
-import { dimensionsOf, handleExpandParent } from "./expand-parent.ts";
+import { handleExpandParent } from "./expand-parent.ts";
 import type { ExpandingChild, ParentLookups } from "./expand-parent.ts";
+import { nodeSize } from "./graph.ts";
 import type {
   NodeBase,
   NodeChange,
@@ -29,7 +30,7 @@ function childOf<TNode extends NodeBase>(
   return {
     id: node.id,
     parentId: node.parentId,
-    rect: { ...change.positionAbsolute, ...dimensionsOf(node) },
+    rect: { ...change.positionAbsolute, ...nodeSize(node) },
   };
 }
 

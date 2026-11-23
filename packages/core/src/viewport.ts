@@ -1,11 +1,10 @@
 import type { Viewport } from "./camera.ts";
 import { clampZoom } from "./camera.ts";
+import { HALF } from "./geometry.ts";
 import type { Rect, Size } from "./geometry.ts";
 import type { CoordinateExtent, Padding, PaddingValue, SnapGrid, XYPosition } from "./types.ts";
 
-const DEFAULT_FIT_PADDING = 0.1;
-const HALF = 0.5;
-
+export const DEFAULT_FIT_PADDING = 0.1;
 const PERCENT = 0.01;
 const UNIT = /(?:px|%)$/u;
 

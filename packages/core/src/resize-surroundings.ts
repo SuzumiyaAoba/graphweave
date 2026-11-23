@@ -1,5 +1,6 @@
-import { dimensionsOf } from "./expand-parent.ts";
 import type { InternalNode } from "./flow-state.ts";
+import { nodeSize } from "./graph.ts";
+import { isExtent } from "./node-position.ts";
 import type { Extent } from "./resize-dimensions.ts";
 import type { NodeBase, NodeOrigin, XYPosition } from "./types.ts";
 
@@ -23,15 +24,11 @@ export interface ResizeWorld<TNode extends NodeBase = NodeBase> {
   current?: (() => ResizeWorld<TNode>) | undefined;
 }
 
-function isExtent(extent: unknown): extent is Extent {
-  return Array.isArray(extent);
-}
-
 // The box of a child, relative to the node, that the node must not shrink away from.
 function childExtentOf(child: InternalNode, node: InternalNode, origin: NodeOrigin): Extent {
   const x = node.position.x + child.position.x;
   const y = node.position.y + child.position.y;
-  const { width, height } = dimensionsOf(child);
+  const { width, height } = nodeSize(child);
   const offset: XYPosition = { x: origin[0] * width, y: origin[1] * height };
   return [
     [x - offset.x, y - offset.y],
@@ -81,7 +78,7 @@ function nodeExtentOf(node: InternalNode, parent: InternalNode | undefined): Ext
   if (parent !== undefined && node.extent === "parent") {
     return [
       [0, 0],
-      [dimensionsOf(parent).width, dimensionsOf(parent).height],
+      [nodeSize(parent).width, nodeSize(parent).height],
     ];
   }
   return isExtent(node.extent) ? node.extent : undefined;

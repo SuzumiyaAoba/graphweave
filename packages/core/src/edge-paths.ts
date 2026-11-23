@@ -1,3 +1,4 @@
+import { HALF } from "./geometry.ts";
 import { Position } from "./types.ts";
 import type { XYPosition } from "./types.ts";
 
@@ -10,7 +11,6 @@ export type EdgePath = readonly [
   offsetY: number,
 ];
 
-const HALF = 0.5;
 const DEFAULT_CURVATURE = 0.25;
 const CURVATURE_SCALE = 25;
 // Weights of the control polygon of a cubic Bézier curve at t = 0.5.

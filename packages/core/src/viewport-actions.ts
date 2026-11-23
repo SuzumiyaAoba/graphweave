@@ -1,9 +1,10 @@
 import type { Viewport } from "./camera.ts";
-import { clampZoom, zoomAt } from "./camera.ts";
+import { clampZoom, zoomAt, sameViewport } from "./camera.ts";
 import type { InternalNode } from "./flow-state.ts";
 import type { FlowActions, FlowStore, FlowStoreState } from "./flow-store-types.ts";
+import { HALF } from "./geometry.ts";
 import type { Point, Rect } from "./geometry.ts";
-import { getBoundsOfRects } from "./graph.ts";
+import { getBoundsOfRects, nodeSize } from "./graph.ts";
 import type {
   CoordinateExtent,
   EdgeBase,
@@ -12,13 +13,10 @@ import type {
   NodeBase,
   Transform,
 } from "./types.ts";
-import { clampViewport, getViewportForBounds } from "./viewport.ts";
+import { DEFAULT_FIT_PADDING, clampViewport, getViewportForBounds } from "./viewport.ts";
 
 const ZOOM_STEP = 1.2;
 const MIN_POSITIVE_ZOOM = 1e-4;
-const DEFAULT_FIT_PADDING = 0.1;
-const HALF = 0.5;
-
 type ViewportActionNames =
   | "setSize"
   | "setViewport"
@@ -39,10 +37,6 @@ function isFinite2D(extent: CoordinateExtent): boolean {
 /** What is drawn for a viewport: the viewport, and the same as the `[x, y, zoom]` React Flow's store keeps. */
 export function drawn(viewport: Viewport): { viewport: Viewport; transform: Transform } {
   return { viewport, transform: [viewport.x, viewport.y, viewport.zoom] };
-}
-
-function sameViewport(a: Viewport, b: Viewport): boolean {
-  return a.x === b.x && a.y === b.y && a.zoom === b.zoom;
 }
 
 /**
@@ -160,13 +154,6 @@ function fitBounds<TNode extends NodeBase, TEdge extends EdgeBase>(
   return setViewportAsGiven(api, viewport);
 }
 
-function sizeOfInternal(internal: InternalNode): { width: number; height: number } {
-  return {
-    width: internal.measured.width ?? internal.width ?? internal.initialWidth ?? 0,
-    height: internal.measured.height ?? internal.height ?? internal.initialHeight ?? 0,
-  };
-}
-
 function isFitCandidate(
   internal: InternalNode,
   wanted: ReadonlySet<string> | undefined,
@@ -185,7 +172,7 @@ function rectsToFit<TNode extends NodeBase, TEdge extends EdgeBase>(
     options.nodes === undefined ? undefined : new Set(options.nodes.map(({ id }) => id));
   const rects: Rect[] = [];
   for (const internal of state.nodeLookup.values()) {
-    const { width, height } = sizeOfInternal(internal);
+    const { width, height } = nodeSize(internal);
     if (isFitCandidate(internal, wanted, options) && width > 0 && height > 0) {
       rects.push({ ...internal.internals.positionAbsolute, width, height });
     }

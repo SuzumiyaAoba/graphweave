@@ -1,6 +1,6 @@
 import type { Point, Viewport } from "@free-flow/core";
 
-import { clientToCanvas } from "./coords.ts";
+import { eventToCanvas } from "./coords.ts";
 import { cancelTakenTaps, createTaps, tapEnded, tapJoined, tapsOfStart } from "./double-tap.ts";
 import type { Taps } from "./double-tap.ts";
 import { trackPan, trackPinch } from "./pan-rebase.ts";
@@ -54,10 +54,6 @@ export function createFingers(deps: PaneDeps, onMovedAway: () => void): Fingers 
   const taps = createTaps();
   const forget = cancelTakenTaps(deps.element, taps);
   return { deps, touches: new Map(), gesture: undefined, onMovedAway, taps, forget };
-}
-
-function canvasOf(deps: PaneDeps, event: { clientX: number; clientY: number }): Point {
-  return clientToCanvas(deps.store, { x: event.clientX, y: event.clientY });
 }
 
 function pointsOf(fingers: Fingers, ids: readonly number[]): Point[] {
@@ -153,7 +149,7 @@ function followOrWait(fingers: Fingers, gesture: Gesture, event: PointerEvent): 
 }
 
 function fingerMoved(fingers: Fingers, event: PointerEvent): void {
-  const at = canvasOf(fingers.deps, event);
+  const at = eventToCanvas(fingers.deps.store, event);
   fingers.touches.set(event.pointerId, at);
   const { gesture } = fingers;
   if (gesture !== undefined && gesture.taking.includes(event.pointerId)) {
@@ -215,7 +211,7 @@ export function rememberFinger(fingers: Fingers, down: PointerEvent): void {
   if (fingers.touches.has(down.pointerId)) {
     return;
   }
-  fingers.touches.set(down.pointerId, canvasOf(fingers.deps, down));
+  fingers.touches.set(down.pointerId, eventToCanvas(fingers.deps.store, down));
   // A double tap whose touch event never came (no touch events) cancels nothing later.
   fingers.taps.taken = false;
   fingerDown(down.pointerId);
@@ -252,7 +248,7 @@ function startGesture(fingers: Fingers, down: PointerEvent): Gesture | undefined
     report: beginViewportGesture(deps.store, down),
     session,
     taking,
-    origin: canvasOf(deps, down),
+    origin: eventToCanvas(deps.store, down),
     moved: false,
     pending: undefined,
     movedSince: new Set(),

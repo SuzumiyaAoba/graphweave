@@ -1,8 +1,7 @@
 /* oxlint-disable import/max-dependencies -- the controller ties the pan, pinch, selection and click gestures together */
-import type { Point } from "@free-flow/core";
 import type { MouseEvent as ReactMouseEvent, PointerEvent as ReactPointerEvent } from "react";
 
-import { clientToCanvas } from "./coords.ts";
+import { eventToCanvas } from "./coords.ts";
 import { isWrappedWithClass } from "./dom-utils.ts";
 import { holdSelection } from "./no-select.ts";
 import { trackPan } from "./pan-rebase.ts";
@@ -32,10 +31,6 @@ interface Runtime {
   clicks: Clicks;
   /** Ends the pan with the mouse that is going on, if any, as if the button were let go. */
   stopPan?: (() => void) | undefined;
-}
-
-function canvasOf(deps: PaneDeps, event: { clientX: number; clientY: number }): Point {
-  return clientToCanvas(deps.store, { x: event.clientX, y: event.clientY });
 }
 
 function modeOf(deps: PaneDeps): PaneMode {
@@ -71,7 +66,7 @@ function panMoved(pan: Pan, event: PointerEvent): void {
   pan.travelled = true;
   pan.moved ||= distance > deps.view.getState().paneClickDistance;
   try {
-    moveForGesture(deps.store, pan.session.move(canvasOf(deps, event)));
+    moveForGesture(deps.store, pan.session.move(eventToCanvas(deps.store, event)));
   } finally {
     // Also when the owner's `onViewportChange` throws: the viewport has moved by then.
     pan.session.settled();
@@ -139,7 +134,7 @@ function beginPan(runtime: Runtime, down: PointerEvent): () => void {
     runtime,
     down,
     report: beginViewportGesture(deps.store, down),
-    session: trackPan(deps.store, canvasOf(deps, down)),
+    session: trackPan(deps.store, eventToCanvas(deps.store, down)),
     moved: false,
     travelled: false,
     held: down.buttons,

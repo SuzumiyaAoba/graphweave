@@ -1,6 +1,6 @@
+import { HALF } from "./geometry.ts";
 import type { XYPosition } from "./types.ts";
 
-const HALF = 0.5;
 const SECOND_TO_LAST = -2;
 
 // Whether `middle` lies on the straight segment from `start` to `end`, going the same way.

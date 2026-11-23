@@ -1,4 +1,6 @@
-export type Extent = readonly [readonly [number, number], readonly [number, number]];
+import type { CoordinateExtent } from "./types.ts";
+
+export type Extent = CoordinateExtent;
 
 /** Which sides a control moves. */
 export interface ControlDirection {

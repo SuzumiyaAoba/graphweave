@@ -1,4 +1,5 @@
-import { dimensionsOf, evaluateAbsolutePosition, handleExpandParent } from "./expand-parent.ts";
+import { evaluateAbsolutePosition, handleExpandParent } from "./expand-parent.ts";
+import { nodeSize } from "./graph.ts";
 import type { ChildPosition, ResizeWorld } from "./resize-surroundings.ts";
 import type { NodeBase, NodeChange, NodePositionChange } from "./types.ts";
 
@@ -43,7 +44,7 @@ function expansionFor<TNode extends NodeBase>(
     return { changes: [], at: { x: change.x, y: change.y } };
   }
   const origin = node.origin ?? nodeOrigin;
-  const own = dimensionsOf(node);
+  const own = nodeSize(node);
   const size = { width: change.width ?? own.width, height: change.height ?? own.height };
   const position = { x: change.x ?? node.position.x, y: change.y ?? node.position.y };
   const absolute = evaluateAbsolutePosition(

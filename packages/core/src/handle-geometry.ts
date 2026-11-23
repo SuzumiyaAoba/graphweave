@@ -1,9 +1,9 @@
 import type { HandleBound, HandleBounds, InternalNode } from "./flow-state.ts";
+import { HALF } from "./geometry.ts";
 import type { Rect } from "./geometry.ts";
-import type { HandleType, NodeBase, XYPosition } from "./types.ts";
+import { nodeSize } from "./graph.ts";
+import type { HandleType, XYPosition } from "./types.ts";
 import { ConnectionMode, Position } from "./types.ts";
-
-const HALF = 0.5;
 
 const OPPOSITE: Readonly<Record<Position, Position>> = {
   [Position.Left]: Position.Right,
@@ -14,14 +14,6 @@ const OPPOSITE: Readonly<Record<Position, Position>> = {
 
 export function oppositePosition(position: Position): Position {
   return OPPOSITE[position];
-}
-
-/** The size a node is laid out with: measured, else declared, else zero. */
-export function sizeOf(node: NodeBase): { width: number; height: number } {
-  return {
-    width: node.measured?.width ?? node.width ?? node.initialWidth ?? 0,
-    height: node.measured?.height ?? node.height ?? node.initialHeight ?? 0,
-  };
 }
 
 // The point on a rectangle's side that faces `position`, halfway along it.
@@ -48,7 +40,7 @@ export function getHandlePosition(
   options: { fallback: Position; center?: boolean },
 ): XYPosition {
   const origin = node.internals.positionAbsolute;
-  const { width, height } = handle ?? sizeOf(node);
+  const { width, height } = handle ?? nodeSize(node);
   const rect = { x: origin.x + (handle?.x ?? 0), y: origin.y + (handle?.y ?? 0), width, height };
   if (options.center === true) {
     return { x: rect.x + width * HALF, y: rect.y + height * HALF };

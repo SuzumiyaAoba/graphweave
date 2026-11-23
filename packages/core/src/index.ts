@@ -1,4 +1,11 @@
-export { clampZoom, flowToScreen, screenToFlow, visibleRect, zoomAt } from "./camera.ts";
+export {
+  clampZoom,
+  flowToScreen,
+  sameViewport,
+  screenToFlow,
+  visibleRect,
+  zoomAt,
+} from "./camera.ts";
 export type { Viewport } from "./camera.ts";
 export { BruteForceIndex } from "./brute-force-index.ts";
 export { applyEdgeChanges, applyNodeChanges } from "./changes.ts";
@@ -35,6 +42,7 @@ export {
   getOutgoers,
   isEdge,
   isNode,
+  nodeSize,
   reconnectEdge,
 } from "./graph.ts";
 export type { ReconnectEdgeOptions } from "./graph.ts";
@@ -173,7 +181,14 @@ export type {
   ResizeValuesWithDirection,
   ResizeWorld,
 } from "./resize-session.ts";
-export { applyWheel, startPan, startPinch, wheelAction } from "./pan-zoom.ts";
+export {
+  PINCH_BOOST,
+  applyWheel,
+  startPan,
+  startPinch,
+  wheelAction,
+  wheelZoomStep,
+} from "./pan-zoom.ts";
 export type {
   PanSession,
   PinchSession,

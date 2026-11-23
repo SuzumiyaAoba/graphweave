@@ -1,4 +1,4 @@
-import { rectsIntersect, visibleRect } from "@free-flow/core";
+import { getBoundsOfRects, rectsIntersect, visibleRect } from "@free-flow/core";
 import type { InternalNode, Rect } from "@free-flow/core";
 import type { ReactElement } from "react";
 
@@ -18,17 +18,6 @@ function boxOf(node: InternalNode<Node>): Rect {
   };
 }
 
-function unionOf(a: Rect, b: Rect): Rect {
-  const x = Math.min(a.x, b.x);
-  const y = Math.min(a.y, b.y);
-  return {
-    x,
-    y,
-    width: Math.max(a.x + a.width, b.x + b.width) - x,
-    height: Math.max(a.y + a.height, b.y + b.height) - y,
-  };
-}
-
 // An edge is on screen when the box spanned by its two nodes touches the visible area.
 function isEdgeOnScreen(
   state: ReactFlowState,
@@ -39,7 +28,7 @@ function isEdgeOnScreen(
   const target = state.nodeLookup.get(ends.target);
   return source === undefined || target === undefined
     ? false
-    : rectsIntersect(unionOf(boxOf(source), boxOf(target)), view);
+    : rectsIntersect(getBoundsOfRects([boxOf(source), boxOf(target)]), view);
 }
 
 function visibleEdgeIds(state: ReactFlowState): string[] {

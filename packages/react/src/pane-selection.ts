@@ -9,16 +9,12 @@ import {
 import type { Point, Rect, Viewport } from "@free-flow/core";
 
 import { autoScrollWhile } from "./connection-auto-pan.ts";
-import { clientToCanvas } from "./coords.ts";
+import { eventToCanvas } from "./coords.ts";
 import { asMouseEvent } from "./drag-session.ts";
 import { noop } from "./noop.ts";
 import { paneClicked } from "./pane-click.ts";
 import type { PaneDeps } from "./pane-types.ts";
 import { trackPointer } from "./pointer-track.ts";
-
-function canvasOf(deps: PaneDeps, event: { clientX: number; clientY: number }): Point {
-  return clientToCanvas(deps.store, { x: event.clientX, y: event.clientY });
-}
 
 /** One box being drawn, from the press until the pointer is released. */
 interface Selection {
@@ -68,7 +64,7 @@ function selectWithin(selection: Selection, box: ReturnType<typeof selectionRect
 function drawBox(selection: Selection, event: PointerEvent): void {
   const { deps, anchor } = selection;
   const start = flowToScreen(currentViewport(deps.store.getState()), anchor);
-  const box = selectionRectOf(start, canvasOf(deps, event));
+  const box = selectionRectOf(start, eventToCanvas(deps.store, event));
   deps.store.setState({
     userSelectionRect: box,
     userSelectionActive: true,
@@ -82,7 +78,7 @@ function drawBox(selection: Selection, event: PointerEvent): void {
 function farEnough(selection: Selection, event: PointerEvent): boolean {
   const { deps, anchor } = selection;
   const start = flowToScreen(currentViewport(deps.store.getState()), anchor);
-  const point = canvasOf(deps, event);
+  const point = eventToCanvas(deps.store, event);
   const required = deps.keys().selectionKeyPressed ? 0 : deps.view.getState().paneClickDistance;
   return Math.hypot(point.x - start.x, point.y - start.y) > required;
 }
@@ -166,7 +162,7 @@ export function beginSelection(
   down: PointerEvent,
   onDone: (drawn: boolean) => void,
 ): void {
-  const start = canvasOf(deps, down);
+  const start = eventToCanvas(deps.store, down);
   const selection: Selection = {
     deps,
     anchor: screenToFlow(currentViewport(deps.store.getState()), start),

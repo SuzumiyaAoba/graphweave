@@ -1,4 +1,5 @@
 import type { Viewport } from "./camera.ts";
+import { HALF } from "./geometry.ts";
 import type { Point, Size } from "./geometry.ts";
 import type { ViewportInterpolation } from "./types.ts";
 
@@ -13,8 +14,6 @@ const RHO = Math.SQRT2;
 const RHO_SQUARED = 2;
 const RHO_TO_THE_FOURTH = 4;
 const EPSILON_SQUARED = 1e-12;
-const HALF = 0.5;
-
 function cosh(value: number): number {
   const exp = Math.exp(value);
   return (exp + 1 / exp) / 2;

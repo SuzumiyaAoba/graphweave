@@ -1,6 +1,6 @@
 import type { InternalNode } from "./flow-state.ts";
 import type { Rect } from "./geometry.ts";
-import { getBoundsOfRects } from "./graph.ts";
+import { getBoundsOfRects, nodeSize } from "./graph.ts";
 import type {
   Dimensions,
   NodeBase,
@@ -29,17 +29,10 @@ export interface ParentLookups<TNode extends NodeBase> {
 
 type ParentChange = NodePositionChange | NodeDimensionChange;
 
-/** The size of a node: as measured, else as the owner gave it. */
-export function dimensionsOf(node: NodeBase): Dimensions {
-  return {
-    width: node.measured?.width ?? node.width ?? node.initialWidth ?? 0,
-    height: node.measured?.height ?? node.height ?? node.initialHeight ?? 0,
-  };
-}
-
+// The box a node takes up in flow coordinates.
 function rectOf(node: InternalNode): Rect {
   const { x, y } = node.internals.positionAbsolute;
-  return { x, y, ...dimensionsOf(node) };
+  return { x, y, ...nodeSize(node) };
 }
 
 // The smallest box that holds every child of each parent and the parent itself.
@@ -73,7 +66,7 @@ interface Growth {
 // How much the parent grows to the left and up (it moves by that), and in size.
 function growthOf(parent: InternalNode, expandedRect: Rect, nodeOrigin: NodeOrigin): Growth {
   const { x, y } = parent.internals.positionAbsolute;
-  const dimensions = dimensionsOf(parent);
+  const dimensions = nodeSize(parent);
   const [originX, originY] = parent.origin ?? nodeOrigin;
   const newWidth = Math.max(dimensions.width, Math.round(expandedRect.width));
   const newHeight = Math.max(dimensions.height, Math.round(expandedRect.height));
@@ -127,7 +120,7 @@ function parentChanges<TNode extends NodeBase>(
 ): ParentChange[] {
   const growth = growthOf(parent, expandedRect, context.origin);
   const { xChange, yChange, newWidth, newHeight, widthChange, heightChange } = growth;
-  const dimensions = dimensionsOf(parent);
+  const dimensions = nodeSize(parent);
   const [originX, originY] = parent.origin ?? context.origin;
   const changes: ParentChange[] =
     xChange > 0 || yChange > 0 || widthChange !== 0 || heightChange !== 0

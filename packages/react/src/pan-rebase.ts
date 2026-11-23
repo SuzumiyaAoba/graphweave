@@ -1,4 +1,4 @@
-import { currentViewport, startPan, startPinch } from "@free-flow/core";
+import { currentViewport, sameViewport, startPan, startPinch } from "@free-flow/core";
 import type { Point, Viewport, ZoomLimits } from "@free-flow/core";
 
 /** What a gesture reads the viewport from: any store of a flow. */
@@ -21,10 +21,6 @@ export interface Tracked<TPoints> extends Moves<TPoints> {
 
 export type TrackedPan = Tracked<Point>;
 export type TrackedPinch = Tracked<Pair>;
-
-function sameViewport(a: Viewport, b: Viewport): boolean {
-  return a.x === b.x && a.y === b.y && a.zoom === b.zoom;
-}
 
 /**
  * A gesture that goes on from where the viewport is when it was moved from outside between two

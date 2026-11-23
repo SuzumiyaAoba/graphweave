@@ -1,8 +1,9 @@
 import type { OnError } from "./error-messages.ts";
 import type { InternalNode } from "./flow-state.ts";
 import type { Point } from "./geometry.ts";
+import { nodeSize } from "./graph.ts";
 import { calculateNodePosition } from "./node-position.ts";
-import type { CoordinateExtent, NodeBase, NodeOrigin, SnapGrid, XYPosition } from "./types.ts";
+import type { CoordinateExtent, NodeOrigin, SnapGrid, XYPosition } from "./types.ts";
 import { snapToGrid } from "./viewport.ts";
 
 // Where the pointer takes the nodes of a drag: each at the same distance from it as when the drag
@@ -33,13 +34,6 @@ export interface Held {
   absolute: XYPosition;
 }
 
-function sizeOf(node: NodeBase): { width: number; height: number } {
-  return {
-    width: node.measured?.width ?? node.width ?? node.initialWidth ?? 0,
-    height: node.measured?.height ?? node.height ?? node.initialHeight ?? 0,
-  };
-}
-
 interface Box {
   x: number;
   y: number;
@@ -49,7 +43,7 @@ interface Box {
 
 function boundsOf(held: readonly Held[]): Box {
   const boxes = held.map((item) => {
-    const { width, height } = sizeOf(item.node);
+    const { width, height } = nodeSize(item.node);
     const { x, y } = item.absolute;
     return { x, y, x2: x + width, y2: y + height };
   });
@@ -64,7 +58,7 @@ function boundsOf(held: readonly Held[]): Box {
 // With several nodes moved under an extent of the flow, the box of all of them has to stay inside
 // it, so each node's own bounds are what is left after the others take their room.
 function groupExtent(held: Held, box: Box, extent: CoordinateExtent): CoordinateExtent {
-  const { width, height } = sizeOf(held.node);
+  const { width, height } = nodeSize(held.node);
   const { x, y } = held.absolute;
   return [
     [x - box.x + extent[0][0], y - box.y + extent[0][1]],

@@ -1,4 +1,5 @@
 import type { EdgeEndpoints, EdgePath } from "./edge-paths.ts";
+import { HALF } from "./geometry.ts";
 import { tidy, toPath } from "./step-path.ts";
 import { Position } from "./types.ts";
 import type { XYPosition } from "./types.ts";
@@ -8,7 +9,6 @@ import type { XYPosition } from "./types.ts";
 
 const DEFAULT_BORDER_RADIUS = 5;
 const DEFAULT_STEP_OFFSET = 20;
-const HALF = 0.5;
 const ZERO: XYPosition = { x: 0, y: 0 };
 const NO_GAPS = { source: ZERO, target: ZERO };
 
