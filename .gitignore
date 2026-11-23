@@ -1,0 +1,34 @@
+# Dependencies / build output
+node_modules
+dist
+storybook-static
+dist-ssr
+coverage
+*.tsbuildinfo
+
+# Logs
+logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# dotenv
+.env
+.env.*
+!.env.example
+
+# Editor / OS
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea
+.DS_Store
+
+# Local-only working notes (research, scratch)
+local/
+
+# AI agent worktrees
+.claude/worktrees/
+
+# pnpm pack output
+*.tgz

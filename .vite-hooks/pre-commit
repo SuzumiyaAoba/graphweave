@@ -1,0 +1,18 @@
+# Runs under `sh -e`: the first failing command aborts the commit.
+
+# 1. Auto-fix the staged files (format + lint fixes) and re-stage the result.
+vp staged
+
+# 2. Verify exactly what is about to be committed. The index is exported to a temporary
+#    directory so that unstaged edits or untracked files can neither hide a broken commit nor
+#    break a good one. Dependencies are linked from the local pnpm store (offline, ~seconds).
+snapshot=$(mktemp -d)
+trap 'rm -rf "$snapshot"' EXIT
+git checkout-index --all --prefix="$snapshot/"
+cd "$snapshot"
+pnpm install --frozen-lockfile --offline --ignore-scripts --silent ||
+  pnpm install --frozen-lockfile --ignore-scripts --silent
+
+# Whole project (not only staged files): format, lint, and type-check cross-file breakage.
+pnpm exec vp check --deny-warnings
+pnpm exec vp run -r test

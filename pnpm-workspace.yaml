@@ -1,0 +1,45 @@
+packages:
+  - apps/*
+  - packages/*
+
+catalogMode: prefer
+
+catalog:
+  "@storybook/react-vite": ^10.6.5
+  "@testing-library/dom": ^10.4.2
+  "@testing-library/react": ^16.3.3
+  "@types/node": ^26.6.6
+  "@types/react": ^19.3.0
+  "@types/react-dom": ^19.3.0
+  "@types/use-sync-external-store": ^1.7.0
+  esbuild: ^0.28.2
+  happy-dom: ^21.0.4
+  react: ^19.3.1
+  react-dom: ^19.3.1
+  storybook: ^10.6.5
+  typescript: ^7.0.2
+  use-sync-external-store: ^1.7.0
+  vite: npm:@voidzero-dev/vite-plus-core@1.5.0
+  vite-plus: 1.5.0
+overrides:
+  vite@*: "catalog:"
+peerDependencyRules:
+  allowAny:
+    - vite
+  allowedVersions:
+    vite: "*"
+minimumReleaseAgeExclude:
+  - "@voidzero-dev/vite-plus-core@1.5.0"
+  - "@voidzero-dev/vite-plus-darwin-arm64@1.5.0"
+  - "@voidzero-dev/vite-plus-darwin-x64@1.5.0"
+  - "@voidzero-dev/vite-plus-linux-arm64-gnu@1.5.0"
+  - "@voidzero-dev/vite-plus-linux-arm64-musl@1.5.0"
+  - "@voidzero-dev/vite-plus-linux-x64-gnu@1.5.0"
+  - "@voidzero-dev/vite-plus-linux-x64-musl@1.5.0"
+  - "@voidzero-dev/vite-plus-win32-arm64-msvc@1.5.0"
+  - "@voidzero-dev/vite-plus-win32-x64-msvc@1.5.0"
+  - vite-plus@1.5.0
+# Dependency build scripts are not run (the pre-commit hook installs with `--ignore-scripts` too).
+# esbuild's postinstall only verifies and speeds up the prebuilt binary, which works without it.
+allowBuilds:
+  esbuild: false

@@ -1,0 +1,30 @@
+{
+  "name": "free-flow",
+  "version": "0.0.0",
+  "private": true,
+  "description": "High-performance node-graph engine (WebGPU + WASM) with framework-agnostic core and React bindings.",
+  "type": "module",
+  "scripts": {
+    "check": "vp check --deny-warnings",
+    "test": "vp run -r test",
+    "build": "vp run -r build",
+    "ready": "vp check --deny-warnings && vp run -r test && vp run -r build",
+    "storybook": "pnpm --filter @free-flow/storybook run storybook",
+    "build-storybook": "pnpm --filter @free-flow/storybook run build-storybook",
+    "prepare": "vp config"
+  },
+  "devDependencies": {
+    "esbuild": "catalog:",
+    "vite-plus": "catalog:"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "12.6.0",
+      "onFail": "download"
+    }
+  },
+  "engines": {
+    "node": ">=22.22.1"
+  }
+}
