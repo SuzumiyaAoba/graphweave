@@ -1,4 +1,4 @@
-import { calcAutoPan, currentViewport } from "@free-flow/core";
+import { calcAutoPan, currentViewport } from "@graphweave/core";
 
 import { moveConnectionTo } from "./connection-move.ts";
 import { clientToCanvas } from "./coords.ts";

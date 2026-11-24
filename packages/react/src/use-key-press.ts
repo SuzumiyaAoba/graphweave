@@ -1,4 +1,4 @@
-import type { KeyCode } from "@free-flow/core";
+import type { KeyCode } from "@graphweave/core";
 import { useEffect, useMemo, useState } from "react";
 
 import { isInputDOMNode } from "./dom-utils.ts";

@@ -1,4 +1,4 @@
-import type { FlowStoreState, Store } from "@free-flow/core";
+import type { FlowStoreState, Store } from "@graphweave/core";
 import { createContext } from "react";
 
 import type { Edge, Node } from "./types.ts";

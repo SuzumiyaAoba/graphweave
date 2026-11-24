@@ -1,4 +1,4 @@
-import type { ChangeMiddleware, EdgeChange, NodeChange } from "@free-flow/core";
+import type { ChangeMiddleware, EdgeChange, NodeChange } from "@graphweave/core";
 import { useEffect, useRef } from "react";
 
 import type { Edge, Node } from "./types.ts";
@@ -25,7 +25,7 @@ function useNodeChangeMiddleware(middleware: ChangeMiddleware<NodeChange<Node>>)
 
 /**
  * The same for edge changes and `onEdgesChange`, but it sees every batch of edge changes that is
- * reported. React Flow keeps such middleware without ever running it, a defect Free-Flow does not copy.
+ * reported. React Flow keeps such middleware without ever running it, a defect GraphWeave does not copy.
  */
 function useEdgeChangeMiddleware(middleware: ChangeMiddleware<EdgeChange<Edge>>): void {
   const store = useStoreApi();

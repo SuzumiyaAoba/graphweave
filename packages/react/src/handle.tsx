@@ -1,10 +1,10 @@
-import { ConnectionMode, Position, errorMessages } from "@free-flow/core";
+import { ConnectionMode, Position, errorMessages } from "@graphweave/core";
 import type {
   ClickConnectionStart,
   Connection,
   ConnectionState,
   HandleType,
-} from "@free-flow/core";
+} from "@graphweave/core";
 import { memo, useEffect, useLayoutEffect, useRef } from "react";
 import type {
   CSSProperties,

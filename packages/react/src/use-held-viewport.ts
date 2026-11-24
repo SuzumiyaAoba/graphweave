@@ -1,4 +1,4 @@
-import type { Viewport } from "@free-flow/core";
+import type { Viewport } from "@graphweave/core";
 import { useLayoutEffect } from "react";
 
 import type { ReactFlowStore } from "./store-context.ts";

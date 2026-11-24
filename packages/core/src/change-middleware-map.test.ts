@@ -112,7 +112,7 @@ describe("createFlowStore: change middleware", () => {
     expect(store.getState().nodes[0]?.selected).toBe(true);
   });
 
-  // React Flow keeps edge middleware without ever running it; Free-Flow runs it.
+  // React Flow keeps edge middleware without ever running it; GraphWeave runs it.
   it("runs edge middleware for the edge changes that are triggered", () => {
     const store = createFlowStore({ defaultNodes: [], defaultEdges: [makeEdge("e1", ["a", "b"])] });
     store.getState().addEdgeChangeMiddleware(() => []);

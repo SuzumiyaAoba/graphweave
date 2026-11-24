@@ -3,8 +3,8 @@ import {
   PanOnScrollMode,
   SelectionMode,
   withoutUndefined,
-} from "@free-flow/core";
-import type { Store } from "@free-flow/core";
+} from "@graphweave/core";
+import type { Store } from "@graphweave/core";
 import { createContext, useCallback, useContext } from "react";
 import { useSyncExternalStoreWithSelector } from "use-sync-external-store/with-selector";
 
@@ -215,7 +215,7 @@ export const ViewPropsContext = createContext<ViewPropsStore | null>(null);
 export function useViewPropsStore(): ViewPropsStore {
   const store = useContext(ViewPropsContext);
   if (store === null) {
-    throw new Error("Free-Flow: this component has to be rendered inside <ReactFlow>.");
+    throw new Error("GraphWeave: this component has to be rendered inside <ReactFlow>.");
   }
   return store;
 }

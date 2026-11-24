@@ -1,4 +1,4 @@
-import type { NodeDimensionUpdate } from "@free-flow/core";
+import type { NodeDimensionUpdate } from "@graphweave/core";
 
 import type { ReactFlowStore } from "./store-context.ts";
 

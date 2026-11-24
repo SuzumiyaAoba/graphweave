@@ -9,7 +9,7 @@ import type {
   Viewport,
   ViewportInterpolation,
   XYPosition,
-} from "@free-flow/core";
+} from "@graphweave/core";
 
 import type { Edge, Node } from "./types.ts";
 

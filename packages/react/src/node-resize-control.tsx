@@ -1,5 +1,5 @@
-import { ResizeControlVariant, snapToGrid, startResize } from "@free-flow/core";
-import type { ControlPosition, InternalNode, Point, ResizeWorld } from "@free-flow/core";
+import { ResizeControlVariant, snapToGrid, startResize } from "@graphweave/core";
+import type { ControlPosition, InternalNode, Point, ResizeWorld } from "@graphweave/core";
 import { useEffect, useRef } from "react";
 import type {
   CSSProperties,

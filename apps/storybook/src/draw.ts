@@ -1,5 +1,5 @@
-import { NO_SLOT, visibleRect } from "@free-flow/core";
-import type { Rect, Size, Viewport } from "@free-flow/core";
+import { NO_SLOT, visibleRect } from "@graphweave/core";
+import type { Rect, Size, Viewport } from "@graphweave/core";
 
 import type { Scene } from "./scene.ts";
 

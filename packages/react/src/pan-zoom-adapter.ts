@@ -1,5 +1,5 @@
-import { clampViewport, currentViewport } from "@free-flow/core";
-import type { CoordinateExtent, Viewport } from "@free-flow/core";
+import { clampViewport, currentViewport } from "@graphweave/core";
+import type { CoordinateExtent, Viewport } from "@graphweave/core";
 
 import type { ViewportHelperOptions } from "./instance-types.ts";
 import { motionOf } from "./instance-viewport.ts";

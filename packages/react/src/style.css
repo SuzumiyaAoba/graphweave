@@ -1,7 +1,7 @@
 /*
  * This stylesheet is the one of React Flow (@xyflow/react 12.12.1), kept as it is so that the class
  * names and custom properties (`--xy-*`) are the ones existing themes and overrides are written for.
- * The rules at the end are Free-Flow's own.
+ * The rules at the end are GraphWeave's own.
  *
  * The licence of React Flow:
  *
@@ -677,7 +677,7 @@ svg.react-flow__connectionline {
   fill: var(--xy-edge-label-color, var(--xy-edge-label-color-default));
 }
 
-/* Free-Flow */
+/* GraphWeave */
 .react-flow__node-toolbar,
 .react-flow__edge-toolbar {
   pointer-events: all;

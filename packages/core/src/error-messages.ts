@@ -1,6 +1,6 @@
 /**
  * The messages `onError` is given, by the code it is given with, worded as React Flow's are. The
- * codes 100 and up are Free-Flow's own.
+ * codes 100 and up are GraphWeave's own.
  */
 export const errorMessages = {
   error002: (): string =>
@@ -28,7 +28,7 @@ export const errorMessages = {
   error012: (id: string): string =>
     `Node with id "${id}" does not exist, it may have been removed. This can happen when a node is deleted before the "onNodeClick" handler is called.`,
   error013: (): string =>
-    "It seems that you haven't loaded the styles. Please import '@free-flow/react/style.css' to make sure everything is working properly.",
+    "It seems that you haven't loaded the styles. Please import '@graphweave/react/style.css' to make sure everything is working properly.",
   error014: (): string =>
     "useNodeConnections: No node ID found. Call useNodeConnections inside a custom Node or provide a node ID.",
   error015: (): string =>

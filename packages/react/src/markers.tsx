@@ -1,5 +1,5 @@
-import { MarkerType, errorMessages } from "@free-flow/core";
-import type { EdgeMarker, EdgeMarkerType } from "@free-flow/core";
+import { MarkerType, errorMessages } from "@graphweave/core";
+import type { EdgeMarker, EdgeMarkerType } from "@graphweave/core";
 import { useEffect } from "react";
 import type { ReactElement } from "react";
 

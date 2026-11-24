@@ -1,4 +1,4 @@
-import type { Viewport } from "@free-flow/core";
+import type { Viewport } from "@graphweave/core";
 import { useEffect } from "react";
 
 import type { SelectionChange } from "./selection-listener.tsx";

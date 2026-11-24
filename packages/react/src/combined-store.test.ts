@@ -1,4 +1,4 @@
-import { createStore } from "@free-flow/core";
+import { createStore } from "@graphweave/core";
 import { describe, expect, it, vi } from "vite-plus/test";
 
 import { combineStores } from "./combined-store.ts";

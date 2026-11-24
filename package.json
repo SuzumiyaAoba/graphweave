@@ -1,5 +1,5 @@
 {
-  "name": "free-flow",
+  "name": "graphweave",
   "version": "0.0.0",
   "private": true,
   "description": "High-performance node-graph engine (WebGPU + WASM) with framework-agnostic core and React bindings.",
@@ -9,8 +9,8 @@
     "test": "vp run -r test",
     "build": "vp run -r build",
     "ready": "vp check --deny-warnings && vp run -r test && vp run -r build",
-    "storybook": "pnpm --filter @free-flow/storybook run storybook",
-    "build-storybook": "pnpm --filter @free-flow/storybook run build-storybook",
+    "storybook": "pnpm --filter @graphweave/storybook run storybook",
+    "build-storybook": "pnpm --filter @graphweave/storybook run build-storybook",
     "prepare": "vp config"
   },
   "devDependencies": {

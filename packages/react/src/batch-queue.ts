@@ -1,4 +1,4 @@
-import type { NodeChange } from "@free-flow/core";
+import type { NodeChange } from "@graphweave/core";
 import { useLayoutEffect, useState } from "react";
 
 import type { ReactFlowStore } from "./store-context.ts";

@@ -1,5 +1,5 @@
-import { currentViewport, sameViewport, startPan, startPinch } from "@free-flow/core";
-import type { Point, Viewport, ZoomLimits } from "@free-flow/core";
+import { currentViewport, sameViewport, startPan, startPinch } from "@graphweave/core";
+import type { Point, Viewport, ZoomLimits } from "@graphweave/core";
 
 /** What a gesture reads the viewport from: any store of a flow. */
 interface ViewportSource {

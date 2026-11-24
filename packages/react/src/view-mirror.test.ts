@@ -1,4 +1,4 @@
-import { createFlowStore } from "@free-flow/core";
+import { createFlowStore } from "@graphweave/core";
 import { describe, expect, it } from "vite-plus/test";
 
 import { MIRROR_KEYS } from "./view-mirror.ts";

@@ -1,5 +1,5 @@
-import { applyWheel, currentViewport } from "@free-flow/core";
-import type { Viewport, WheelInput, WheelOptions } from "@free-flow/core";
+import { applyWheel, currentViewport } from "@graphweave/core";
+import type { Viewport, WheelInput, WheelOptions } from "@graphweave/core";
 
 import { clientToCanvas } from "./coords.ts";
 import { isWrappedWithClass } from "./dom-utils.ts";

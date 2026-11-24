@@ -1,4 +1,4 @@
-import type { InternalNode } from "@free-flow/core";
+import type { InternalNode } from "@graphweave/core";
 import { act, cleanup, render } from "@testing-library/react";
 import { describe, expect, it } from "vite-plus/test";
 

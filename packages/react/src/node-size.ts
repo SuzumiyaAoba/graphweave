@@ -1,4 +1,4 @@
-import type { InternalNode } from "@free-flow/core";
+import type { InternalNode } from "@graphweave/core";
 
 // The size a node is given inline. As in React Flow, `initialWidth` and `initialHeight` stand in for
 // it until the node's handles have been measured (on the server, and for the first paint).

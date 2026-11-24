@@ -1,4 +1,4 @@
-import type { FitViewOptions } from "@free-flow/core";
+import type { FitViewOptions } from "@graphweave/core";
 
 import { handled } from "./handled.ts";
 import { motionOf } from "./instance-viewport.ts";

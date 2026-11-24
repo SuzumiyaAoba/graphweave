@@ -1,4 +1,4 @@
-import type { InternalNode } from "@free-flow/core";
+import type { InternalNode } from "@graphweave/core";
 import { createContext, createElement, memo, useContext, useLayoutEffect, useRef } from "react";
 import type {
   FocusEvent as ReactFocusEvent,

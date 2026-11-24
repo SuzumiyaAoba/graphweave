@@ -1,5 +1,5 @@
-import { applyEdgeChanges, applyNodeChanges } from "@free-flow/core";
-import type { EdgeChange, NodeChange } from "@free-flow/core";
+import { applyEdgeChanges, applyNodeChanges } from "@graphweave/core";
+import type { EdgeChange, NodeChange } from "@graphweave/core";
 import { useCallback, useState } from "react";
 import type { Dispatch, SetStateAction } from "react";
 

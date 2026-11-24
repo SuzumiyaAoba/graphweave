@@ -1,5 +1,5 @@
-import { BruteForceIndex, NodeStore, UniformGridIndex, clampZoom } from "@free-flow/core";
-import type { Point, Size, SpatialIndex, Viewport } from "@free-flow/core";
+import { BruteForceIndex, NodeStore, UniformGridIndex, clampZoom } from "@graphweave/core";
+import type { Point, Size, SpatialIndex, Viewport } from "@graphweave/core";
 
 /** Which spatial index answers visibility and hit-test queries. */
 export type IndexKind = "grid" | "brute-force";

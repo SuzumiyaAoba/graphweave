@@ -1,5 +1,5 @@
-import { ConnectionMode, Position, getHandlePosition, handlesOf } from "@free-flow/core";
-import type { HandleBound, HandleType, InternalNode } from "@free-flow/core";
+import { ConnectionMode, Position, getHandlePosition, handlesOf } from "@graphweave/core";
+import type { HandleBound, HandleType, InternalNode } from "@graphweave/core";
 
 import type { Edge, Node } from "./types.ts";
 

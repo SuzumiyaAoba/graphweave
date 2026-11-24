@@ -1,4 +1,4 @@
-import type { NodeChange } from "@free-flow/core";
+import type { NodeChange } from "@graphweave/core";
 import { act, cleanup, fireEvent, render } from "@testing-library/react";
 import { useState } from "react";
 import type { ReactElement } from "react";

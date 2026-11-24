@@ -1,4 +1,4 @@
-import type { Viewport } from "@free-flow/core";
+import type { Viewport } from "@graphweave/core";
 import { act, cleanup, fireEvent, render } from "@testing-library/react";
 import type { ReactElement } from "react";
 import { describe, expect, it, vi } from "vite-plus/test";

@@ -1,5 +1,5 @@
-import { getBoundsOfRects } from "@free-flow/core";
-import type { Position, Rect } from "@free-flow/core";
+import { getBoundsOfRects } from "@graphweave/core";
+import type { Position, Rect } from "@graphweave/core";
 import type { HTMLAttributes, ReactElement, ReactNode } from "react";
 import { createPortal } from "react-dom";
 

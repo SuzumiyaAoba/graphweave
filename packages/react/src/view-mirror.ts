@@ -1,4 +1,4 @@
-import type { Viewport } from "@free-flow/core";
+import type { Viewport } from "@graphweave/core";
 
 import type { AriaLabelConfig } from "./aria-label-config.ts";
 import { noop } from "./noop.ts";

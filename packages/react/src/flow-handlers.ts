@@ -5,7 +5,7 @@ import type {
   HandleType,
   NodeChange,
   Viewport,
-} from "@free-flow/core";
+} from "@graphweave/core";
 import type { MouseEvent as ReactMouseEvent } from "react";
 
 import type { ReactFlowInstance } from "./instance-types.ts";

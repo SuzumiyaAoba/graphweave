@@ -1,5 +1,5 @@
-import { connectionKey, errorMessages } from "@free-flow/core";
-import type { HandleType, NodeConnection } from "@free-flow/core";
+import { connectionKey, errorMessages } from "@graphweave/core";
+import type { HandleType, NodeConnection } from "@graphweave/core";
 import { useEffect, useMemo, useRef } from "react";
 
 import { useNodeId } from "./use-graph-hooks.ts";

@@ -1,4 +1,4 @@
-import { errorMessages } from "@free-flow/core";
+import { errorMessages } from "@graphweave/core";
 import { useEffect, useRef } from "react";
 
 import { inDevelopment } from "./dev-warn.ts";

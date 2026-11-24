@@ -27,7 +27,7 @@ import {
 } from "./xyflow-oracle.ts";
 
 // Every expectation below is what the real @xyflow/react 12.12.1 returned for the same input (see
-// `generatedWith` in the fixture file), so these tests say where Free-Flow differs from React Flow.
+// `generatedWith` in the fixture file), so these tests say where GraphWeave differs from React Flow.
 
 describe("edge paths, against React Flow", () => {
   it("getBezierPath gives the same path and label position", () => {

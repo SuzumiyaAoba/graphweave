@@ -1,5 +1,5 @@
-import { currentViewport, zoomPath } from "@free-flow/core";
-import type { Point, Viewport, ViewportInterpolation } from "@free-flow/core";
+import { currentViewport, zoomPath } from "@graphweave/core";
+import type { Point, Viewport, ViewportInterpolation } from "@graphweave/core";
 
 import type { ReactFlowStore } from "./store-context.ts";
 import {

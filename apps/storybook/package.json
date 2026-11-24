@@ -1,8 +1,8 @@
 {
-  "name": "@free-flow/storybook",
+  "name": "@graphweave/storybook",
   "version": "0.0.0",
   "private": true,
-  "description": "Storybook playground for Free-Flow.",
+  "description": "Storybook playground for GraphWeave.",
   "type": "module",
   "scripts": {
     "storybook": "storybook dev -p 6006",
@@ -10,8 +10,8 @@
     "test": "vp test run"
   },
   "dependencies": {
-    "@free-flow/core": "workspace:*",
-    "@free-flow/react": "workspace:*"
+    "@graphweave/core": "workspace:*",
+    "@graphweave/react": "workspace:*"
   },
   "devDependencies": {
     "@storybook/react-vite": "catalog:",

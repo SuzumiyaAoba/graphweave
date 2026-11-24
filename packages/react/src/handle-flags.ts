@@ -1,4 +1,4 @@
-import type { HandleBound, NodeDimensionUpdate } from "@free-flow/core";
+import type { HandleBound, NodeDimensionUpdate } from "@graphweave/core";
 
 import { readHandleFlags } from "./dom-registry.ts";
 import type { HandleFlagsOnPage } from "./measure.ts";

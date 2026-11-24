@@ -19,7 +19,7 @@ describe("the default onError", () => {
       expect(warn).not.toHaveBeenCalled();
       vi.stubEnv("NODE_ENV", "development");
       warnInDevelopment("004", "no size");
-      expect(warn).toHaveBeenCalledWith("[Free-Flow]: no size (error 004)");
+      expect(warn).toHaveBeenCalledWith("[GraphWeave]: no size (error 004)");
     } finally {
       vi.unstubAllEnvs();
       warn.mockRestore();

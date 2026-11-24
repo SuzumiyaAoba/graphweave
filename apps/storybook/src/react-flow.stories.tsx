@@ -1,4 +1,4 @@
-import "@free-flow/react/style.css";
+import "@graphweave/react/style.css";
 import {
   Background,
   BackgroundVariant,
@@ -9,8 +9,8 @@ import {
   reconnectEdge,
   useEdgesState,
   useNodesState,
-} from "@free-flow/react";
-import type { Connection, Edge, Node } from "@free-flow/react";
+} from "@graphweave/react";
+import type { Connection, Edge, Node } from "@graphweave/react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useCallback } from "react";
 import type { ReactElement } from "react";

@@ -1,6 +1,6 @@
 /* oxlint-disable import/max-dependencies -- a drag ties the pointer, the selection, the scrolling of the canvas and the callbacks together */
-import { calcAutoPan, getDragItems, startNodeDrag } from "@free-flow/core";
-import type { DragConfig, DragSession, InternalNode, Point } from "@free-flow/core";
+import { calcAutoPan, getDragItems, startNodeDrag } from "@graphweave/core";
+import type { DragConfig, DragSession, InternalNode, Point } from "@graphweave/core";
 import type { MouseEvent as ReactMouseEvent } from "react";
 
 import { clientToCanvas, clientToFlow } from "./coords.ts";

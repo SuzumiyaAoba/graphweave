@@ -1,5 +1,5 @@
-import { getBoundsOfRects, rectsIntersect, visibleRect } from "@free-flow/core";
-import type { InternalNode, Rect } from "@free-flow/core";
+import { getBoundsOfRects, rectsIntersect, visibleRect } from "@graphweave/core";
+import type { InternalNode, Rect } from "@graphweave/core";
 import type { ReactElement } from "react";
 
 import { EdgeWrapper } from "./edge-wrapper.tsx";

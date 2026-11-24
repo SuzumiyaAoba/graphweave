@@ -1,7 +1,7 @@
 {
-  "name": "@free-flow/core",
+  "name": "@graphweave/core",
   "version": "0.0.0",
-  "description": "Framework-agnostic core of Free-Flow (graph model, layout, hit-testing, rendering backends).",
+  "description": "Framework-agnostic core of GraphWeave (graph model, layout, hit-testing, rendering backends).",
   "license": "MIT",
   "files": [
     "dist"

@@ -1,5 +1,5 @@
-import { ResizeControlVariant } from "@free-flow/core";
-import type { ControlPosition } from "@free-flow/core";
+import { ResizeControlVariant } from "@graphweave/core";
+import type { ControlPosition } from "@graphweave/core";
 import type { CSSProperties, ReactElement } from "react";
 
 import { NodeResizeControl } from "./node-resize-control.tsx";

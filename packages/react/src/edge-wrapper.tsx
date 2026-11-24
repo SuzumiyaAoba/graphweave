@@ -1,5 +1,5 @@
-import { errorMessages } from "@free-flow/core";
-import type { InternalNode, ZIndexMode } from "@free-flow/core";
+import { errorMessages } from "@graphweave/core";
+import type { InternalNode, ZIndexMode } from "@graphweave/core";
 import { createElement, memo, useEffect, useState } from "react";
 import type {
   KeyboardEvent as ReactKeyboardEvent,

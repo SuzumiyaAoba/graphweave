@@ -1,4 +1,4 @@
-import { createFlowStore, createStore } from "@free-flow/core";
+import { createFlowStore, createStore } from "@graphweave/core";
 import type {
   CoordinateExtent,
   FitViewOptions,
@@ -6,7 +6,7 @@ import type {
   NodeOrigin,
   WithUndefined,
   ZIndexMode,
-} from "@free-flow/core";
+} from "@graphweave/core";
 import { useState } from "react";
 import type { ReactElement, ReactNode } from "react";
 

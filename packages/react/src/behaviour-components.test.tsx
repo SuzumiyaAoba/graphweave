@@ -175,7 +175,7 @@ describe("the debug option", () => {
   it("writes the changes a click makes to the console", async () => {
     const log = vi.spyOn(console, "log").mockImplementation(noop);
     await clickWith({ debug: true });
-    expect(log).toHaveBeenCalledWith("Free-Flow: trigger node changes", expect.any(Array));
+    expect(log).toHaveBeenCalledWith("GraphWeave: trigger node changes", expect.any(Array));
     log.mockRestore();
   });
 

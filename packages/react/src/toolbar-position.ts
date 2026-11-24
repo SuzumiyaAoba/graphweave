@@ -1,4 +1,4 @@
-import type { Position, Rect, Viewport } from "@free-flow/core";
+import type { Position, Rect, Viewport } from "@graphweave/core";
 
 export type ToolbarAlign = "start" | "center" | "end";
 

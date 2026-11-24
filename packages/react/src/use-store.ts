@@ -6,7 +6,7 @@ import type { ReactFlowState, ReactFlowStore } from "./store-context.ts";
 import type { Edge, Node } from "./types.ts";
 
 const MISSING_PROVIDER =
-  "Free-Flow: this hook has to be used inside <ReactFlow> or <ReactFlowProvider>.";
+  "GraphWeave: this hook has to be used inside <ReactFlow> or <ReactFlowProvider>.";
 
 /** The flow's store: `getState`, `setState` and `subscribe`. Does not re-render on changes. */
 export function useStoreApi<TNode extends Node = Node, TEdge extends Edge = Edge>(): ReactFlowStore<

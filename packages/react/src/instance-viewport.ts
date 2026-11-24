@@ -1,5 +1,11 @@
-import { flowToScreen, screenToFlow, snapToGrid } from "@free-flow/core";
-import type { FitBoundsOptions, FitViewOptions, Rect, Viewport, XYPosition } from "@free-flow/core";
+import { flowToScreen, screenToFlow, snapToGrid } from "@graphweave/core";
+import type {
+  FitBoundsOptions,
+  FitViewOptions,
+  Rect,
+  Viewport,
+  XYPosition,
+} from "@graphweave/core";
 
 import { flushBatch } from "./batch-queue.ts";
 import { getFlowElement } from "./dom-registry.ts";

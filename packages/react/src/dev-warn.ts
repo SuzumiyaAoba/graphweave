@@ -18,6 +18,6 @@ export function inDevelopment(): boolean {
 export function warnInDevelopment(id: string, message: string): void {
   if (inDevelopment()) {
     // oxlint-disable-next-line eslint/no-console -- the warning is the point, as in React Flow
-    console.warn(`[Free-Flow]: ${message} (error ${id})`);
+    console.warn(`[GraphWeave]: ${message} (error ${id})`);
   }
 }

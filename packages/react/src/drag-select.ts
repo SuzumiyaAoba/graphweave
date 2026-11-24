@@ -1,4 +1,4 @@
-import type { InternalNode } from "@free-flow/core";
+import type { InternalNode } from "@graphweave/core";
 
 import { setDraggedNode } from "./drag-flag.ts";
 import type { ReactFlowState, ReactFlowStore } from "./store-context.ts";

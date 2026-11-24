@@ -1,4 +1,4 @@
-import type { FlowSettings } from "@free-flow/core";
+import type { FlowSettings } from "@graphweave/core";
 import type { HTMLAttributes } from "react";
 
 import type { ReactFlowOptions, ReactFlowProps } from "./react-flow-props.ts";

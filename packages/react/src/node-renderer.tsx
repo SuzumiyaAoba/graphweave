@@ -1,5 +1,5 @@
-import { rectsIntersect, visibleRect } from "@free-flow/core";
-import type { InternalNode, NodeDimensionUpdate, Rect } from "@free-flow/core";
+import { rectsIntersect, visibleRect } from "@graphweave/core";
+import type { InternalNode, NodeDimensionUpdate, Rect } from "@graphweave/core";
 import { useEffect, useMemo } from "react";
 import type { ReactElement } from "react";
 

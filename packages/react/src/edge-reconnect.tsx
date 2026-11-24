@@ -4,8 +4,8 @@ import {
   canStartConnection,
   endConnection,
   startConnection,
-} from "@free-flow/core";
-import type { Connection, HandleType } from "@free-flow/core";
+} from "@graphweave/core";
+import type { Connection, HandleType } from "@graphweave/core";
 import type { PointerEvent as ReactPointerEvent, ReactElement } from "react";
 
 import { followConnectionPointer } from "./connection-auto-pan.ts";

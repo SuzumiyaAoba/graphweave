@@ -15,7 +15,7 @@ import type {
   WithUndefined,
   XYPosition,
   ZIndexMode,
-} from "@free-flow/core";
+} from "@graphweave/core";
 import type {
   ComponentType,
   CSSProperties,
@@ -126,7 +126,7 @@ export type ColorMode = "light" | "dark" | "system";
 
 export interface ProOptions {
   account?: string | undefined;
-  /** Accepted for compatibility: Free-Flow draws no attribution, so there is nothing to hide. */
+  /** Accepted for compatibility: GraphWeave draws no attribution, so there is nothing to hide. */
   hideAttribution?: boolean | undefined;
 }
 
@@ -223,7 +223,7 @@ export interface ReactFlowOptions<TNode extends Node = Node, TEdge extends Edge 
   autoPanOnSelection: boolean;
   /** Centres the viewport on a node that is out of view when the keyboard focuses it. */
   autoPanOnNodeFocus: boolean;
-  /** Accepted for compatibility: Free-Flow draws no attribution, so there is nothing to place. */
+  /** Accepted for compatibility: GraphWeave draws no attribution, so there is nothing to place. */
   attributionPosition: PanelPosition;
   autoPanSpeed: number;
   selectNodesOnDrag: boolean;

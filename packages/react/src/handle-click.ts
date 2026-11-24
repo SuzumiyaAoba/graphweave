@@ -1,5 +1,5 @@
-import { connectionByClick, finalStateOf } from "@free-flow/core";
-import type { ClickConnectionStart } from "@free-flow/core";
+import { connectionByClick, finalStateOf } from "@graphweave/core";
+import type { ClickConnectionStart } from "@graphweave/core";
 import type { MouseEvent as ReactMouseEvent } from "react";
 
 import { connected } from "./handle-connect.ts";

@@ -4,8 +4,8 @@ import {
   canStartConnection,
   endConnection,
   startConnection,
-} from "@free-flow/core";
-import type { Connection, HandleType, StartConnectionParams } from "@free-flow/core";
+} from "@graphweave/core";
+import type { Connection, HandleType, StartConnectionParams } from "@graphweave/core";
 
 import { followConnectionPointer } from "./connection-auto-pan.ts";
 import { dragConnection } from "./connection-drag.ts";

@@ -1,4 +1,4 @@
-import type { Point } from "@free-flow/core";
+import type { Point } from "@graphweave/core";
 
 /** Takes a listener for the events of a resize drag; a name after a dot (`drag.mine`) tells it apart. */
 export type ResizeDragListener = (event: ResizeDragEvent) => void;

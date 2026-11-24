@@ -1,4 +1,4 @@
-import type { EdgeBase, EdgeData, NodeBase, NodeData, Position } from "@free-flow/core";
+import type { EdgeBase, EdgeData, NodeBase, NodeData, Position } from "@graphweave/core";
 import type {
   ComponentType,
   CSSProperties,

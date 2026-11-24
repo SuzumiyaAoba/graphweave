@@ -3,8 +3,8 @@ import {
   getSimpleBezierPath,
   getSmoothStepPath,
   getStraightPath,
-} from "@free-flow/core";
-import type { EdgePath } from "@free-flow/core";
+} from "@graphweave/core";
+import type { EdgePath } from "@graphweave/core";
 import type { ComponentType, ReactElement } from "react";
 
 import { BaseEdge } from "./base-edge.tsx";

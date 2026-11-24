@@ -1,4 +1,4 @@
-import { currentViewport } from "@free-flow/core";
+import { currentViewport } from "@graphweave/core";
 
 import { clientToCanvas } from "./coords.ts";
 import { isWrappedWithClass } from "./dom-utils.ts";

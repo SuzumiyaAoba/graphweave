@@ -1,4 +1,4 @@
-import type { ConnectionState, InternalNode, Viewport } from "@free-flow/core";
+import type { ConnectionState, InternalNode, Viewport } from "@graphweave/core";
 import { useCallback, useContext } from "react";
 
 import { NodeIdContext } from "./store-context.ts";

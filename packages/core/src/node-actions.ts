@@ -81,7 +81,7 @@ function setEdges<TNode extends NodeBase, TEdge extends EdgeBase>(
 function tellDebug(debug: boolean, kind: "node" | "edge", changes: readonly unknown[]): void {
   if (debug) {
     // oxlint-disable-next-line eslint/no-console -- printing is the whole point of `debug`
-    console.log(`Free-Flow: trigger ${kind} changes`, changes);
+    console.log(`GraphWeave: trigger ${kind} changes`, changes);
   }
 }
 
@@ -105,7 +105,7 @@ function triggerNodeChanges<TNode extends NodeBase, TEdge extends EdgeBase>(
 }
 
 // Unlike the node middleware, the edge middleware sees every batch of edge changes. React Flow keeps
-// edge middleware but never runs it, which can only be a defect; Free-Flow does not copy it.
+// edge middleware but never runs it, which can only be a defect; GraphWeave does not copy it.
 function triggerEdgeChanges<TNode extends NodeBase, TEdge extends EdgeBase>(
   api: FlowStore<TNode, TEdge>,
   changes: Parameters<FlowActions<TNode, TEdge>["triggerEdgeChanges"]>[0],

@@ -1,5 +1,5 @@
-import { updateConnection } from "@free-flow/core";
-import type { ClickConnectionStart } from "@free-flow/core";
+import { updateConnection } from "@graphweave/core";
+import type { ClickConnectionStart } from "@graphweave/core";
 
 import { clientToFlow } from "./coords.ts";
 import type { ReactFlowStore } from "./store-context.ts";

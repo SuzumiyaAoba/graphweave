@@ -1,7 +1,7 @@
 {
-  "name": "@free-flow/react",
+  "name": "@graphweave/react",
   "version": "0.0.0",
-  "description": "React bindings for Free-Flow.",
+  "description": "React bindings for GraphWeave.",
   "license": "MIT",
   "files": [
     "dist"
@@ -31,7 +31,7 @@
     "prepublishOnly": "vp run build"
   },
   "dependencies": {
-    "@free-flow/core": "workspace:*",
+    "@graphweave/core": "workspace:*",
     "use-sync-external-store": "catalog:"
   },
   "devDependencies": {

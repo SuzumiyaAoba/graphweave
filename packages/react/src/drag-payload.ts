@@ -1,4 +1,4 @@
-import type { DragSession } from "@free-flow/core";
+import type { DragSession } from "@graphweave/core";
 
 import type { ReactFlowStore } from "./store-context.ts";
 import type { Node } from "./types.ts";

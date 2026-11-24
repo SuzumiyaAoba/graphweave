@@ -7,7 +7,7 @@ import type {
   Position,
   SelectionToClear,
   XYPosition,
-} from "@free-flow/core";
+} from "@graphweave/core";
 
 import type {
   DeleteElementsParams,
@@ -38,7 +38,7 @@ import type {
 } from "./types.ts";
 import type { ViewMirror } from "./view-mirror.ts";
 
-// Names that React Flow gives to types Free-Flow has too, under another name or written inline.
+// Names that React Flow gives to types GraphWeave has too, under another name or written inline.
 
 export type Align = "center" | "start" | "end";
 export type ColorModeClass = "light" | "dark";
@@ -134,7 +134,7 @@ export type StraightEdgeProps = Omit<EdgeComponentProps, "sourcePosition" | "tar
 export type SimpleBezierEdgeProps = EdgeComponentProps;
 
 /**
- * The props of the piece that draws a node, as React Flow names them. Free-Flow's own piece reads
+ * The props of the piece that draws a node, as React Flow names them. GraphWeave's own piece reads
  * the same things from the store, and takes only the `id`; the rest is accepted and left to it.
  */
 export interface NodeWrapperProps {
@@ -183,7 +183,7 @@ export interface EdgeWrapperProps {
   disableKeyboardA11y?: boolean;
 }
 
-/** The actions of React Flow's store, which Free-Flow's store has, with the same names. */
+/** The actions of React Flow's store, which GraphWeave's store has, with the same names. */
 export type ReactFlowActions = Pick<
   FlowActions,
   | "setNodes"

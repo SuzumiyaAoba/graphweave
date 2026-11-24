@@ -1,5 +1,5 @@
-import { errorMessages } from "@free-flow/core";
-import type { OnError } from "@free-flow/core";
+import { errorMessages } from "@graphweave/core";
+import type { OnError } from "@graphweave/core";
 
 import type { ReactFlowStore } from "./store-context.ts";
 

@@ -1,4 +1,4 @@
-import { errorMessages } from "@free-flow/core";
+import { errorMessages } from "@graphweave/core";
 import { useEffect } from "react";
 
 import type { ViewPropsStore } from "./view-props.ts";

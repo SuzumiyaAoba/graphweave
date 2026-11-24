@@ -1,5 +1,5 @@
-import { NO_SLOT, clampZoom, screenToFlow, zoomAt } from "@free-flow/core";
-import type { Point, Size, Viewport } from "@free-flow/core";
+import { NO_SLOT, clampZoom, screenToFlow, zoomAt } from "@graphweave/core";
+import type { Point, Size, Viewport } from "@graphweave/core";
 
 import { contextOf, styleCanvas } from "./canvas.ts";
 import { drawFrame, smoothStats } from "./draw.ts";

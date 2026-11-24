@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vite-plus/test";
 
 // oxlint-disable-next-line import/no-namespace -- the test enumerates the names the module exports
-import * as FreeFlow from "./index.ts";
+import * as GraphWeave from "./index.ts";
 
 // Every runtime (value) export of @xyflow/react 12.12.1, grouped by kind. Type-only exports are not
 // listed here because they are erased at runtime; the type-level surface is covered by the
@@ -90,7 +90,7 @@ describe("React Flow runtime export parity", () => {
   });
 
   it("keeps the pending list exact, so it cannot go stale", () => {
-    const exported = new Set(Object.keys(FreeFlow));
+    const exported = new Set(Object.keys(GraphWeave));
     const missing = XYFLOW_RUNTIME_EXPORTS.filter((name) => !exported.has(name));
     expect(missing).toStrictEqual(PENDING);
   });

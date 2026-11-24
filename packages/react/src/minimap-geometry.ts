@@ -1,5 +1,5 @@
-import { getBoundsOfRects } from "@free-flow/core";
-import type { Rect } from "@free-flow/core";
+import { getBoundsOfRects } from "@graphweave/core";
+import type { Rect } from "@graphweave/core";
 
 /** The part of the flow the mini map shows, and how much flow space one mini map pixel covers. */
 export interface MiniMapView {

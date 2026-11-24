@@ -1,4 +1,4 @@
-import type { FitViewOptions } from "@free-flow/core";
+import type { FitViewOptions } from "@graphweave/core";
 import { useMemo } from "react";
 import type { CSSProperties, ReactElement, ReactNode } from "react";
 

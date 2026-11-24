@@ -1,5 +1,5 @@
-import { getBoundsOfRects } from "@free-flow/core";
-import type { Rect } from "@free-flow/core";
+import { getBoundsOfRects } from "@graphweave/core";
+import type { Rect } from "@graphweave/core";
 import { useCallback, useEffect, useRef } from "react";
 import type {
   KeyboardEvent as ReactKeyboardEvent,

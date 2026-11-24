@@ -4,8 +4,8 @@ import {
   getSimpleBezierPath,
   getSmoothStepPath,
   getStraightPath,
-} from "@free-flow/core";
-import type { ConnectionInProgress } from "@free-flow/core";
+} from "@graphweave/core";
+import type { ConnectionInProgress } from "@graphweave/core";
 import type { ReactElement } from "react";
 
 import { cx } from "./class-names.ts";

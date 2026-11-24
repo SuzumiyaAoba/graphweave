@@ -1,4 +1,4 @@
-import { createStore } from "@free-flow/core";
+import { createStore } from "@graphweave/core";
 import {
   useCallback,
   useContext,

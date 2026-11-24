@@ -1,4 +1,4 @@
-import type { Store } from "@free-flow/core";
+import type { Store } from "@graphweave/core";
 
 interface Merged<TMain, TSide> {
   main: TMain;

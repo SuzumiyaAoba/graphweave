@@ -5,8 +5,8 @@ import {
   getNodesInRect,
   screenToFlow,
   selectionRectOf,
-} from "@free-flow/core";
-import type { Point, Rect, Viewport } from "@free-flow/core";
+} from "@graphweave/core";
+import type { Point, Rect, Viewport } from "@graphweave/core";
 
 import { autoScrollWhile } from "./connection-auto-pan.ts";
 import { eventToCanvas } from "./coords.ts";

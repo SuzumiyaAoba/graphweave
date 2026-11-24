@@ -270,7 +270,7 @@ export function reconnectEdge<TEdge extends EdgeBase>(
     options.shouldReplaceId === false
       ? oldEdge.id
       : (options.getEdgeId ?? getEdgeId)(newConnection);
-  // Free-Flow's own rule: an edge is not given the id that another edge has already.
+  // GraphWeave's own rule: an edge is not given the id that another edge has already.
   if (edges.some((edge) => edge.id === id && edge.id !== oldEdge.id)) {
     return edges;
   }

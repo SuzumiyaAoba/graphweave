@@ -1,4 +1,4 @@
-import { rectOverlapArea, visibleRect } from "@free-flow/core";
+import { rectOverlapArea, visibleRect } from "@graphweave/core";
 import type { FocusEvent as ReactFocusEvent } from "react";
 
 import type { ReactFlowStore } from "./store-context.ts";

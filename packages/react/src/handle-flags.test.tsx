@@ -1,4 +1,4 @@
-import { Position } from "@free-flow/core";
+import { Position } from "@graphweave/core";
 import { act, cleanup, render } from "@testing-library/react";
 import type { ReactElement } from "react";
 import { useLayoutEffect } from "react";

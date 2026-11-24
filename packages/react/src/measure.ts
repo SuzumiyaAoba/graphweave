@@ -1,5 +1,5 @@
-import { Position } from "@free-flow/core";
-import type { HandleBound, HandleBounds, HandleType, NodeDimensionUpdate } from "@free-flow/core";
+import { Position } from "@graphweave/core";
+import type { HandleBound, HandleBounds, HandleType, NodeDimensionUpdate } from "@graphweave/core";
 
 export const NODE_CLASS = "react-flow__node";
 export const HANDLE_CLASS = "react-flow__handle";

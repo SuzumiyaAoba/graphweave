@@ -1,4 +1,4 @@
-import type { Point, Viewport } from "@free-flow/core";
+import type { Point, Viewport } from "@graphweave/core";
 
 import { eventToCanvas } from "./coords.ts";
 import { cancelTakenTaps, createTaps, tapEnded, tapJoined, tapsOfStart } from "./double-tap.ts";

@@ -25,7 +25,7 @@ export {
   isNode,
   reconnectEdge,
   rectsIntersect,
-} from "@free-flow/core";
+} from "@graphweave/core";
 export type {
   Box,
   Connection,
@@ -70,7 +70,7 @@ export type {
   Viewport,
   XYPosition,
   ZIndexMode,
-} from "@free-flow/core";
+} from "@graphweave/core";
 
 export { Background, BackgroundVariant } from "./background.tsx";
 export type { BackgroundProps } from "./background.tsx";

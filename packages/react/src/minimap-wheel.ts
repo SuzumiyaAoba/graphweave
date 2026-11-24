@@ -1,4 +1,4 @@
-import { PINCH_BOOST, currentViewport, wheelZoomStep } from "@free-flow/core";
+import { PINCH_BOOST, currentViewport, wheelZoomStep } from "@graphweave/core";
 import { useEffect, useRef } from "react";
 import type { RefObject } from "react";
 

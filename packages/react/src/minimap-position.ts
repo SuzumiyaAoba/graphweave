@@ -1,4 +1,4 @@
-import type { XYPosition } from "@free-flow/core";
+import type { XYPosition } from "@graphweave/core";
 
 import type { MiniMapView } from "./minimap-geometry.ts";
 

@@ -1,5 +1,5 @@
-import { arrowDelta, nudgeNodes } from "@free-flow/core";
-import type { Point } from "@free-flow/core";
+import { arrowDelta, nudgeNodes } from "@graphweave/core";
+import type { Point } from "@graphweave/core";
 import type { KeyboardEvent as ReactKeyboardEvent } from "react";
 
 import type { AriaLabelConfig } from "./aria-label-config.ts";

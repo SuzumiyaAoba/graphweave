@@ -5,8 +5,8 @@ import {
   isNode,
   nodeSize,
   rectOverlapArea,
-} from "@free-flow/core";
-import type { InternalNode, Rect } from "@free-flow/core";
+} from "@graphweave/core";
+import type { InternalNode, Rect } from "@graphweave/core";
 
 import { enqueueEdges, enqueueNodes } from "./batch-queue.ts";
 import type { ReactFlowInstance, UpdateOptions } from "./instance-types.ts";

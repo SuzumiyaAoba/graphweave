@@ -1,5 +1,5 @@
-import { MarkerType } from "@free-flow/core";
-import type { NodeChange } from "@free-flow/core";
+import { MarkerType } from "@graphweave/core";
+import type { NodeChange } from "@graphweave/core";
 import { act, cleanup, fireEvent, render, renderHook } from "@testing-library/react";
 import { describe, expect, it, vi } from "vite-plus/test";
 

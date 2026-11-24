@@ -1,4 +1,4 @@
-import { Position } from "@free-flow/core";
+import { Position } from "@graphweave/core";
 import { isValidElement } from "react";
 import type { ComponentType, ReactElement, ReactNode } from "react";
 

@@ -1,5 +1,5 @@
-import { screenToFlow } from "@free-flow/core";
-import type { Point, XYPosition } from "@free-flow/core";
+import { screenToFlow } from "@graphweave/core";
+import type { Point, XYPosition } from "@graphweave/core";
 
 import { getFlowElement } from "./dom-registry.ts";
 import type { ReactFlowStore } from "./store-context.ts";

@@ -1,7 +1,7 @@
 import type { EdgePath } from "./edge-paths.ts";
 import { Position } from "./types.ts";
 
-// Helpers for comparing Free-Flow with what the real @xyflow/react 12.12.1 returned (the fixtures
+// Helpers for comparing GraphWeave with what the real @xyflow/react 12.12.1 returned (the fixtures
 // in `xyflow-fixtures.json`): paths whose numbers may differ by rounding, results whose keys may
 // come in another order.
 

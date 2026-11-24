@@ -1,5 +1,5 @@
-import { getBoundsOfRects, visibleRect } from "@free-flow/core";
-import type { InternalNode, Rect, XYPosition } from "@free-flow/core";
+import { getBoundsOfRects, visibleRect } from "@graphweave/core";
+import type { InternalNode, Rect, XYPosition } from "@graphweave/core";
 import { createElement, memo, useEffect, useLayoutEffect, useRef } from "react";
 import type {
   ComponentType,

@@ -64,7 +64,7 @@ function describeStats(props: FlowPlaygroundProps, stats: PlaygroundStats): stri
 }
 
 /**
- * Canvas playground for `@free-flow/core`: a `NodeStore` and a spatial index drive what is drawn,
+ * Canvas playground for `@graphweave/core`: a `NodeStore` and a spatial index drive what is drawn,
  * which nodes a click hits, and how dragging keeps the index up to date.
  */
 export function FlowPlayground(props: FlowPlaygroundProps): ReactElement {
